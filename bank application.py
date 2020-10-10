@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 print("-*-*-*- Welcome to my Bank. -*-*-*-")
 print("-*-*-*- How may I help you? -*-*-*-")
 choice = input("Here is my menu:"
