@@ -938,24 +938,34 @@ elif choice == "e":
         except:
             print("Invalid input, only numbers accepted")
         if current_pin == 1234:
-            new_pin = input("Please enter your new PIN: ")
-            try:
-                new_pin = int(new_pin)
-            except:
-                print("Invalid input, only numbers accepted")
-            confirm_pin = input("Please confirm your PIN: ")
-            try:
-                confirm_pin = int(confirm_pin)
-            except:
-                print("Invalid input, only numbers accepted")
-            if new_pin == confirm_pin:
-                print("You have successfully changed your PIN, your new PIN is " + str(new_pin))
-            else:
-                print("Sorry the PIN did not match, please try again")
+            valid = False
+
+            while valid == False:
+                new_pin = input("Please enter your new PIN: ")
+                try:
+                    new_pin = int(new_pin)
+                except:
+                    print("Invalid input, only numbers accepted")
+                    continue
+                else:
+                    valid = True
+
+                def confirm():
+                    confirm_pin = input("Please confirm your PIN: ")
+                    try:
+                        confirm_pin = int(confirm_pin)
+                    except:
+                        print("Invalid input, only numbers accepted")
+                    if new_pin == confirm_pin:
+                        print("You have successfully changed your PIN, your new PIN is " + str(new_pin))
+                    else:
+                        print("Sorry the PIN did not match, please try again")
+                        confirm()
+
+                confirm()
         else:
             print("Incorrect PIN, please try again")
             real_pin()
-
 
     real_pin()
 else:
